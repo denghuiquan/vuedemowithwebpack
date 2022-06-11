@@ -19,6 +19,12 @@ module.exports = {
     devServer: {
         hot: true
     },
+    resolve: {
+        extensions: ['.js', '.json', '.jsx', '.ts', '.vue'],
+        alias: {
+            '@': path.resolve(__dirname, 'src')  // 允许使用别名访问src目录下的文件避免./这样的相对路径写法,避免多层级目录访问的回退查找错误，从而统一对是src下资源的访问方式。例如： 以前访问'./js/utils.js'就可以使用'@/js/utils'
+        }
+    },
     module: {
         rules: [
             {
